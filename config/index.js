@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api':{
+          // target:'http://jsonplaceholder.typicode.com',
+          target: 'http://127.0.0.1:3000/api/',
+          changeOrigin:true,
+          pathRewrite:{
+              '^/api':''
+          }
+      },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -66,4 +74,5 @@ module.exports = {
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
   }
+}
 }
